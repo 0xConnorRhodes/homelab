@@ -1,0 +1,53 @@
+# global option
+{
+	email connor@rhodes.contact
+}
+
+# snippets
+(authelia_sso) {
+	forward_auth 127.0.0.1:9091 {
+		uri /api/verify?rd=https://auth.connorrhodes.com
+		copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+	}
+}
+
+# *.connorrhodes.com
+auth.connorrhodes.com {
+	tls /home/connor/code/infra/caddy/my_certs/auth.connorrhodes.com_certificate.pem /home/connor/code/infra/caddy/my_certs/auth.connorrhodes.com_key.pem
+	reverse_proxy 127.0.0.1:9091
+}
+
+home.connorrhodes.com {
+	tls /home/connor/code/infra/caddy/my_certs/home.connorrhodes.com_certificate.pem /home/connor/code/infra/caddy/my_certs/home.connorrhodes.com_key.pem
+	import authelia_sso
+	respond "coming soon"
+}
+
+pass.connorrhodes.com {
+	tls /home/connor/code/infra/caddy/my_certs/pass.connorrhodes.com_certificate.pem /home/connor/code/infra/caddy/my_certs/pass.connorrhodes.com_key.pem
+	reverse_proxy 192.168.86.10:37553
+}
+
+photos.connorrhodes.com {
+	reverse_proxy 192.168.86.10:3001
+	request_body {
+		max_size 50000MB
+	}
+}
+
+jf.connorrhodes.com {
+	reverse_proxy 127.0.0.1:8096
+}
+
+sync.connorrhodes.com {
+	tls /home/connor/code/infra/caddy/my_certs/sync.connorrhodes.com_certificate.pem /home/connor/code/infra/caddy/my_certs/sync.connorrhodes.com_key.pem
+	import authelia_sso
+	reverse_proxy 127.0.0.1:42631
+}
+
+# *.connor.engineer
+bootstrap.connor.engineer {
+	tls /home/connor/code/infra/caddy/my_certs/bootstrap.connor.engineer_certificate.pem /home/connor/code/infra/caddy/my_certs/bootstrap.connor.engineer_key.pem
+	root * /home/connor/code/scripts/bootstrap
+	file_server
+}
