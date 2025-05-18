@@ -1,1 +1,2 @@
 authelia/data/
+*.key
