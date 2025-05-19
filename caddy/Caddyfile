@@ -28,6 +28,12 @@ pass.connorrhodes.com {
 	reverse_proxy 192.168.86.10:37553
 }
 
+sfs.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/sfs.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sfs.connorrhodes.com_key.pem
+	root * /mnt/sfs
+	file_server
+}
+
 photos.connorrhodes.com {
 	reverse_proxy 192.168.86.10:3001
 	request_body {
@@ -43,6 +49,15 @@ sync.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_key.pem
 	import authelia_sso
 	reverse_proxy 127.0.0.1:42631
+}
+
+pve.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/pve.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pve.connorrhodes.com_key.pem
+	reverse_proxy 192.168.86.10:8006 {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 # *.connor.engineer
