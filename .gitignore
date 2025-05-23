@@ -1,3 +1,4 @@
 authelia/data/
 certs/
+priv/
 *.key
