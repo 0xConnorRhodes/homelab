@@ -20,7 +20,7 @@ auth.connorrhodes.com {
 home.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/home.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/home.connorrhodes.com_key.pem
 	import authelia_sso
-	respond "coming soon"
+	reverse_proxy 127.0.0.1:55104
 }
 
 pass.connorrhodes.com {
