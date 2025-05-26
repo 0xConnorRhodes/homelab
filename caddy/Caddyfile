@@ -90,6 +90,15 @@ pve.connorrhodes.com {
 	}
 }
 
+*.rhodes.contact {
+   tls /home/connor/code/infra/certs/cf_origin_certs/rhodes.contact_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/rhodes.contact_key.pem
+
+    @pairdrop host drop.rhodes.contact
+    handle @pairdrop {
+        reverse_proxy 127.0.0.1:3000
+    }
+}
+
 # *.connor.engineer
 bootstrap.connor.engineer {
 	tls /home/connor/code/infra/certs/cf_origin_certs/bootstrap.connor.engineer_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/bootstrap.connor.engineer_key.pem
