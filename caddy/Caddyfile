@@ -20,7 +20,8 @@ auth.connorrhodes.com {
 home.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/home.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/home.connorrhodes.com_key.pem
 	import authelia_sso
-	root * /home/connor/code/infra/priv/homer
+	#root * /home/connor/code/infra/priv/homer
+	root * /home/connor/.local/share/dashy
 	file_server
 }
 
