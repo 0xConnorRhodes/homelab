@@ -49,17 +49,11 @@ files.connorrhodes.com {
     }
 }
 
-papers.connorrhodes.com {
-	tls /home/connor/code/infra/certs/cf_origin_certs/papers.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/papers.connorrhodes.com_key.pem
-	import authelia_sso
-	reverse_proxy 127.0.0.1:8783
-}
-
-vark.connorrhodes.com {
-	tls /home/connor/code/infra/certs/cf_origin_certs/vark.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/vark.connorrhodes.com_key.pem
-	import authelia_sso
-	reverse_proxy 127.0.0.1:8781
-}
+#papers.connorrhodes.com {
+#	tls /home/connor/code/infra/certs/cf_origin_certs/papers.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/papers.connorrhodes.com_key.pem
+#	import authelia_sso
+#	reverse_proxy 127.0.0.1:8783
+#}
 
 pf.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_key.pem
