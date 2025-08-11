@@ -1,0 +1,13 @@
+services:
+  picard:
+    image: mikenye/picard
+    container_name: picard
+    ports:
+      - "127.0.0.1:5800:5800"
+    volumes:
+      - config:/config
+      - /scary/phone/music_library:/storage
+    restart: unless-stopped
+
+volumes:
+  config:
