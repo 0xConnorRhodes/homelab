@@ -1,0 +1,15 @@
+services:
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    security_opt:
+      - seccomp:unconfined # allows GUI apps to understand syscalls
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - "/mnt/zmedia/audiobooks/calibre_audiobooks:/config/Calibre Library"
+    ports:
+      - "127.0.0.1:29039:8181"
+    restart: never
