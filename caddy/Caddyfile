@@ -66,6 +66,15 @@ picard.connorrhodes.com {
 	reverse_proxy 127.0.0.1:5800
 }
 
+calibre.connorrhodes.com {
+	import authelia_sso
+	reverse_proxy 127.0.0.1:29039 {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
 photos.connorrhodes.com {
 	reverse_proxy 192.168.86.10:3001
 	request_body {
