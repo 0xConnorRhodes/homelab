@@ -61,6 +61,11 @@ pf.connorrhodes.com {
 	reverse_proxy 127.0.0.1:15169
 }
 
+rl.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_key.pem
+	reverse_proxy 127.0.0.1:54699
+}
+
 picard.connorrhodes.com {
 	import authelia_sso
 	reverse_proxy 127.0.0.1:5800
