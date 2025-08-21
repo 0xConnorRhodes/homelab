@@ -12,4 +12,4 @@ services:
       - "/mnt/zmedia/audiobooks/calibre_audiobooks:/config/Calibre Library"
     ports:
       - "127.0.0.1:29039:8181"
-    restart: never
+    restart: no
