@@ -51,8 +51,9 @@ files.connorrhodes.com {
 
 news.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/news.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/news.connorrhodes.com_key.pem
-    import authelia_sso
-    reverse_proxy 127.0.0.1:25279
+    #import authelia_sso # for miniflux
+    #reverse_proxy 127.0.0.1:25279 # for miniflux
+    reverse_proxy 127.0.0.1:39670 # for freshrss
 }
 
 #papers.connorrhodes.com {
