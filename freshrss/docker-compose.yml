@@ -8,10 +8,6 @@ services:
       CRON_MIN: '*/13'
       TZ: America/Chicago
     volumes:
-      - freshrss_data:/var/www/FreshRSS/data
-      - freshrss_extensions:/var/www/FreshRSS/extensions
+      - ./data:/var/www/FreshRSS/data
+      - ./extensions:/var/www/FreshRSS/extensions
     restart: unless-stopped
-
-volumes:
-  freshrss_data:
-  freshrss_extensions:
