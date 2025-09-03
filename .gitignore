@@ -2,3 +2,5 @@ authelia/data/
 certs/
 priv/
 *.key
+freshrss/data
+freshrss/extensions
