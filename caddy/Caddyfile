@@ -68,6 +68,10 @@ pf.connorrhodes.com {
 	reverse_proxy 127.0.0.1:15169
 }
 
+shelf.connorrhodes.com {
+	reverse_proxy 127.0.0.1:61793
+}
+
 rl.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_key.pem
 	reverse_proxy 127.0.0.1:54699
