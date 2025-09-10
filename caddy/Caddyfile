@@ -91,6 +91,32 @@ calibre.connorrhodes.com {
 	}
 }
 
+search.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_key.pem
+	root * /home/connor/code/my-unduck
+  file_server
+
+  # Rewrite non-existent files to index.html
+  # try_files {path} /index.html
+
+  # Set caching headers for static files
+  @static {
+    path *.js *.css *.svg
+  }
+  header @static Cache-Control "public, max-age=604800"
+
+  # Set correct content types
+  @js {
+    path *.js
+  }
+  header @js Content-Type application/javascript
+
+  @json {
+    path *.json
+  }
+  header @json Content-Type application/json
+}
+
 photos.connorrhodes.com {
 	reverse_proxy 192.168.86.10:3001
 	request_body {
