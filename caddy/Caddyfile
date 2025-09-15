@@ -40,16 +40,19 @@ home.connorrhodes.com {
 
 pass.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pass.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pass.connorrhodes.com_key.pem
+	import robots_txt
 	reverse_proxy 192.168.86.10:37553
 }
 
 budget.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_key.pem
+	import robots_txt
 	reverse_proxy 192.168.86.10:8954
 }
 
 sfs.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/sfs.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sfs.connorrhodes.com_key.pem
+	import robots_txt
 	root * /mnt/sfs
 	file_server
 }
@@ -57,6 +60,7 @@ sfs.connorrhodes.com {
 files.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_key.pem
     import authelia_sso
+	import robots_txt
     reverse_proxy 127.0.0.1:26835 {
         header_up X-Forwarded-For {remote_host}
     }
@@ -64,6 +68,7 @@ files.connorrhodes.com {
 
 news.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/news.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/news.connorrhodes.com_key.pem
+	import robots_txt
     #import authelia_sso # for miniflux
     #reverse_proxy 127.0.0.1:25279 # for miniflux
     reverse_proxy 127.0.0.1:39670 # for freshrss
@@ -78,11 +83,13 @@ news.connorrhodes.com {
 pf.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_key.pem
 	import authelia_sso
+	import robots_txt
 	reverse_proxy 127.0.0.1:15169 # docker
 	#reverse_proxy 127.0.0.1:62268 # nixos
 }
 
 shelf.connorrhodes.com {
+	import robots_txt
 	reverse_proxy 127.0.0.1:61793
 }
 
@@ -93,16 +100,19 @@ rl.connorrhodes.com {
 }
 
 shiori.connorrhodes.com {
+	import robots_txt
 	reverse_proxy 127.0.0.1:54699
 }
 
 picard.connorrhodes.com {
 	import authelia_sso
+	import robots_txt
 	reverse_proxy 127.0.0.1:5800
 }
 
 calibre.connorrhodes.com {
 	import authelia_sso
+	import robots_txt
 	reverse_proxy 127.0.0.1:29039 {
 		transport http {
 			tls_insecure_skip_verify
@@ -112,6 +122,7 @@ calibre.connorrhodes.com {
 
 search.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_key.pem
+	import robots_txt
 	root * /home/connor/code/my-unduck
   file_server
 
@@ -137,6 +148,7 @@ search.connorrhodes.com {
 }
 
 photos.connorrhodes.com {
+	import robots_txt
 	reverse_proxy 192.168.86.10:3001
 	request_body {
 		max_size 50000MB
@@ -144,11 +156,13 @@ photos.connorrhodes.com {
 }
 
 jf.connorrhodes.com {
+	import robots_txt
 	reverse_proxy 127.0.0.1:8096
 }
 
 mus.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_key.pem
+	import robots_txt
   import authelia_sso
 	reverse_proxy 127.0.0.1:15612
 }
@@ -156,11 +170,13 @@ mus.connorrhodes.com {
 sync.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_key.pem
 	import authelia_sso
+	import robots_txt
 	reverse_proxy 127.0.0.1:42631
 }
 
 pve.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pve.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pve.connorrhodes.com_key.pem
+	import robots_txt
 	reverse_proxy 192.168.86.10:8006 {
 		transport http {
 			tls_insecure_skip_verify
