@@ -65,8 +65,8 @@ news.connorrhodes.com {
 pf.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_key.pem
 	import authelia_sso
-	#reverse_proxy 127.0.0.1:15169 # docker
-	reverse_proxy 127.0.0.1:62268 # nixos
+	reverse_proxy 127.0.0.1:15169 # docker
+	#reverse_proxy 127.0.0.1:62268 # nixos
 }
 
 shelf.connorrhodes.com {
@@ -75,6 +75,10 @@ shelf.connorrhodes.com {
 
 rl.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/rl.connorrhodes.com_key.pem
+	reverse_proxy 127.0.0.1:38399
+}
+
+shiori.connorrhodes.com {
 	reverse_proxy 127.0.0.1:54699
 }
 
