@@ -117,6 +117,12 @@ picard.connorrhodes.com {
 	reverse_proxy 127.0.0.1:5800
 }
 
+bk.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/bk.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/bk.connorrhodes.com_key.pem
+	import robots_txt
+	reverse_proxy 127.0.0.1:44514
+}
+
 calibre.connorrhodes.com {
 	import authelia_sso
 	import robots_txt
