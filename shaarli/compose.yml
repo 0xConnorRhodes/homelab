@@ -1,0 +1,18 @@
+---
+services:
+  shaarli:
+    image: ghcr.io/shaarli/shaarli:v0.15.0
+    restart: unless-stopped
+    container_name: shaarli
+    hostname: shaarli
+    ports:
+      - "127.0.0.1:44514:80"
+    environment:
+      - SHAARLI_VIRTUAL_HOST="bk.connorrhodes.com"
+    volumes:
+      - data:/var/www/shaarli/data
+      - cache:/var/www/shaarli/cache
+
+volumes:
+  data:
+  cache:
