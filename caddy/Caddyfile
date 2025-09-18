@@ -48,8 +48,13 @@ home.connorrhodes.com {
 pass.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/pass.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pass.connorrhodes.com_key.pem
 	import robots_txt
-	reverse_proxy 192.168.86.10:37553
+	# reverse_proxy 127.0.0.1:37553 # docker
+	reverse_proxy 127.0.0.1:33461 # nix
 }
+# pass2.connorrhodes.com {
+# 	import robots_txt
+# 	reverse_proxy 127.0.0.1:33461 # nix
+# }
 
 budget.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_key.pem
