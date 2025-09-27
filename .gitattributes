@@ -1,2 +1,3 @@
 authelia/** filter=git-crypt diff=git-crypt
 shiori/justfile filter=git-crypt diff=git-crypt
+immich/.env filter=git-crypt diff=git-crypt
