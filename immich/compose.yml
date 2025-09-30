@@ -17,12 +17,12 @@ services:
     depends_on:
       - redis
       - database
-    restart: on-failure
+    restart: unless-stopped
 
   redis:
     container_name: immich_redis
     image: redis:6.2-alpine@sha256:b6124ab2e45cc332e16398022a411d7e37181f21ff7874835e0180f56a09e82a
-    restart: on-failure
+    restart: unless-stopped
 
   database:
     container_name: immich_postgres
@@ -36,4 +36,4 @@ services:
       POSTGRES_DB: ${DB_DATABASE_NAME}
     volumes:
       - /home/connor/.local/docker_data/immich/db:/var/lib/postgresql/data
-    restart: on-failure
+    restart: unless-stopped
