@@ -78,7 +78,7 @@ sfs.connorrhodes.com {
 
 files.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_key.pem
-    import authelia_sso
+    #import authelia_sso
 	import robots_txt
     reverse_proxy 127.0.0.1:26835 {
         header_up X-Forwarded-For {remote_host}
