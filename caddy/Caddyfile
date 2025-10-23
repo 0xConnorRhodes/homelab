@@ -148,8 +148,7 @@ calibre.connorrhodes.com {
 search.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_key.pem
 	import robots_txt
-	# root * /home/connor/code/my-unduck
-	root * /home/connor/code/my-unduckified/dist
+	root * /home/connor/code/my-unduck/dist
   file_server
 
   # Rewrite non-existent files to index.html
