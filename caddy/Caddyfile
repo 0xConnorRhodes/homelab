@@ -148,17 +148,18 @@ calibre.connorrhodes.com {
 search.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/search.connorrhodes.com_key.pem
 	import robots_txt
-	root * /home/connor/code/my-unduck
+	# root * /home/connor/code/my-unduck
+	root * /home/connor/code/my-unduckified/dist
   file_server
 
   # Rewrite non-existent files to index.html
   # try_files {path} /index.html
 
   # Set caching headers for static files
-  @static {
-    path *.js *.css *.svg
-  }
-  header @static Cache-Control "public, max-age=604800"
+  # @static {
+  #   path *.js *.css *.svg
+  # }
+  # header @static Cache-Control "public, max-age=604800"
 
   # Set correct content types
   @js {
