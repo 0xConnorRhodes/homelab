@@ -76,6 +76,13 @@ sfs.connorrhodes.com {
 	file_server
 }
 
+s2.connorrhodes.com {
+	import authelia_sso
+	import robots_txt
+	root * /zstore/static_files/s2_files
+	file_server
+}
+
 files.connorrhodes.com {
 	#tls /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/files.connorrhodes.com_key.pem
     #import authelia_sso
