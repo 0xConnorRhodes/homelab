@@ -181,7 +181,7 @@ search.connorrhodes.com {
 
 photos.connorrhodes.com {
 	import robots_txt
-	reverse_proxy 127.0.0.1:4311
+	reverse_proxy 127.0.0.1:4312
 	request_body {
 		max_size 50000MB
 	}
