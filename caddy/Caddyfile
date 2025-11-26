@@ -193,7 +193,7 @@ jf.connorrhodes.com {
 }
 
 mus.connorrhodes.com {
-	tls /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_key.pem
+	#tls /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/mus.connorrhodes.com_key.pem
 	import robots_txt
   #import authelia_sso
 	reverse_proxy 127.0.0.1:15612
