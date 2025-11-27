@@ -53,7 +53,7 @@ pass.connorrhodes.com {
 }
 
 sb.connorrhodes.com {
-	tls /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_key.pem
+	#tls /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_key.pem
 	import authelia_sso
 	import robots_txt
 	reverse_proxy 127.0.0.1:38157
