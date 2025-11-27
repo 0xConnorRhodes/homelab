@@ -59,6 +59,13 @@ sb.connorrhodes.com {
 	reverse_proxy 127.0.0.1:38157
 }
 
+md.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/md.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/md.connorrhodes.com_key.pem
+	import authelia_sso
+	import robots_txt
+	reverse_proxy 127.0.0.1:2290
+}
+
 budget.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_key.pem
 	import robots_txt

@@ -7,9 +7,9 @@ services:
       PGID: 100
       FLATNOTES_AUTH_TYPE: "none"
     volumes:
-      - "./data:/data"
+      - "/home/connor/.local/notes/myflatnotes:/data"
       # Optional. Allows you to save the search index in a different location: 
       # - "./index:/data/.flatnotes"
     ports:
-      - "8080:8080"
+      - "127.0.0.1:2290:8080"
     restart: unless-stopped
