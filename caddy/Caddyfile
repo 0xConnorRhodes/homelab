@@ -109,12 +109,10 @@ news.connorrhodes.com {
 #	reverse_proxy 127.0.0.1:8783
 #}
 
-pf.connorrhodes.com {
-	tls /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/pf.connorrhodes.com_key.pem
-	import authelia_sso
+tasks.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/tasks.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/tasks.connorrhodes.com_key.pem
 	import robots_txt
-	reverse_proxy 127.0.0.1:15169 # docker
-	#reverse_proxy 127.0.0.1:62268 # nixos
+	reverse_proxy 127.0.0.1:15177
 }
 
 shelf.connorrhodes.com {
