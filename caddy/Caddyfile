@@ -66,6 +66,12 @@ md.connorrhodes.com {
 	reverse_proxy 127.0.0.1:2290
 }
 
+api.connorrhodes.com {
+	tls /home/connor/code/infra/certs/cf_origin_certs/api.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/api.connorrhodes.com_key.pem
+	import robots_txt
+	reverse_proxy 127.0.0.1:62521
+}
+
 budget.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/budget.connorrhodes.com_key.pem
 	import robots_txt
