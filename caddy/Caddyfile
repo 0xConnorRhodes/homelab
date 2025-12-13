@@ -233,8 +233,22 @@ pve.connorrhodes.com {
 }
 
 # *.connor.engineer
+auth.connor.engineer {
+	tls /home/connor/code/infra/certs/cf_origin_certs/auth.connor.engineer_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/auth.connor.engineer_key.pem
+	reverse_proxy 127.0.0.1:9092
+}
+
 bootstrap.connor.engineer {
 	tls /home/connor/code/infra/certs/cf_origin_certs/bootstrap.connor.engineer_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/bootstrap.connor.engineer_key.pem
+	import robots_txt
 	root * /home/connor/code/scripts/bootstrap
+	file_server
+}
+
+demo-notes.connor.engineer {
+	tls /home/connor/code/infra/certs/cf_origin_certs/demo-notes.connor.engineer_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/demo-notes.connor.engineer_key.pem
+	import authelia_sso
+	import robots_txt
+	root * /home/connor/code/demo-notes-connor-engineer/build/html
 	file_server
 }
