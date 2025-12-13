@@ -253,7 +253,6 @@ bootstrap.connor.engineer {
 }
 
 demo-notes.connor.engineer {
-	tls /home/connor/code/infra/certs/cf_origin_certs/demo-notes.connor.engineer_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/demo-notes.connor.engineer_key.pem
 	import authelia_sso_engineer
 	import robots_txt
 	root * /home/connor/code/demo-notes-connor-engineer/build/html
