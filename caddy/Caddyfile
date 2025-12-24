@@ -211,6 +211,18 @@ mus.connorrhodes.com {
 	reverse_proxy 127.0.0.1:15612
 }
 
+nc.connorrhodes.com {
+	#tls /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_key.pem
+	import robots_txt
+	reverse_proxy 127.0.0.1:51352 {
+		header_up X-Forwarded-Host {host}
+		header_up X-Forwarded-Proto https
+	}
+	request_body {
+		max_size 512MB
+	}
+}
+
 sync.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sync.connorrhodes.com_key.pem
 	import authelia_sso
