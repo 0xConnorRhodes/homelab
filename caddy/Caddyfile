@@ -105,6 +105,9 @@ files.connorrhodes.com {
 	import robots_txt
     reverse_proxy 127.0.0.1:26835 {
         header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+        header_up -Origin
     }
 }
 
@@ -131,6 +134,14 @@ tasks.connorrhodes.com {
 shelf.connorrhodes.com {
 	import robots_txt
 	reverse_proxy 127.0.0.1:61793
+}
+
+litellm.connorrhodes.com {
+	import robots_txt
+	reverse_proxy 127.0.0.1:38441 {
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 rl.connorrhodes.com {
