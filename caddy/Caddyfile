@@ -214,7 +214,10 @@ mus.connorrhodes.com {
 nc.connorrhodes.com {
 	#tls /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_key.pem
 	import robots_txt
-	reverse_proxy 127.0.0.1:51352 {
+	reverse_proxy 127.0.0.1:11000 {
+		header_up Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
 		header_up X-Forwarded-Host {host}
 		header_up X-Forwarded-Proto https
 	}
