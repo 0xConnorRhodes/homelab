@@ -1,0 +1,9 @@
+services:
+  opodsync:
+    container_name: opodsync
+    image: ghcr.io/tomgehrmann/opodsync:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:60168:8080"
+    #volumes:
+    # - ./data:/var/www/server/data:rw
