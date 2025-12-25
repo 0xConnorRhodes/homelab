@@ -59,6 +59,25 @@ pass.connorrhodes.com {
 	reverse_proxy 127.0.0.1:33461 # nix
 }
 
+#gpodder.connorrhodes.com {
+#	import robots_txt
+#	reverse_proxy 127.0.0.1:60168
+#}
+
+nc.connorrhodes.com {
+    import robots_txt
+    reverse_proxy 127.0.0.1:11000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Host {host}
+        header_up X-Forwarded-Proto https
+    }
+    request_body {
+        max_size 512MB
+    }
+}
+
 sb.connorrhodes.com {
 	#tls /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_key.pem
 	import authelia_sso
@@ -211,19 +230,9 @@ mus.connorrhodes.com {
 	reverse_proxy 127.0.0.1:15612
 }
 
-nc.connorrhodes.com {
-	#tls /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/nc.connorrhodes.com_key.pem
+pods.connorrhodes.com {
 	import robots_txt
-	reverse_proxy 127.0.0.1:11000 {
-		header_up Host {host}
-		header_up X-Real-IP {remote_host}
-		header_up X-Forwarded-For {remote_host}
-		header_up X-Forwarded-Host {host}
-		header_up X-Forwarded-Proto https
-	}
-	request_body {
-		max_size 512MB
-	}
+	reverse_proxy 127.0.0.1:29379
 }
 
 sync.connorrhodes.com {
