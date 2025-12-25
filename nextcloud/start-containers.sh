@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Script to fix Nextcloud AIO 502 errors
 # This happens when the master container is running but service containers are stopped
+# this can happen after a docker compose restart or a backup manually launched backup job
 
 set -e
 
