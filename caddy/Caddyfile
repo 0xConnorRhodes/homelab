@@ -255,6 +255,11 @@ pve.connorrhodes.com {
 *.rhodes.contact {
    tls /home/connor/code/infra/certs/cf_origin_certs/rhodes.contact_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/rhodes.contact_key.pem
 
+    @share host share.rhodes.contact
+    handle @share {
+        redir https://files.connorrhodes.com/share/public/
+    }
+
     @pairdrop host drop.rhodes.contact
     handle @pairdrop {
         reverse_proxy 127.0.0.1:3000
