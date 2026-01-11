@@ -86,10 +86,27 @@ sb.connorrhodes.com {
 }
 
 term.connorrhodes.com {
-	#tls /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_key.pem
-	import authelia_sso
+	# Bypass auth for PWA assets - service workers must be accessible without authentication
+	@pwa_files {
+		path /service-worker.js /manifest.json /config.js /assets/*
+	}
+	handle @pwa_files {
+		header {
+			Service-Worker-Allowed "/"
+			Cache-Control "public, max-age=3600, must-revalidate"
+		}
+		reverse_proxy 127.0.0.1:3002
+	}
+
 	import robots_txt
-	reverse_proxy 127.0.0.1:3002
+
+	@notPwaFiles not {
+		path /service-worker.js /manifest.json /config.js /assets/*
+	}
+	handle @notPwaFiles {
+		import authelia_sso
+		reverse_proxy 127.0.0.1:3000
+	}
 }
 
 ssh.connorrhodes.com {
