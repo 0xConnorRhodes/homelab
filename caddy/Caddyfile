@@ -78,7 +78,7 @@ nc.connorrhodes.com {
     }
 }
 
-sb.connorrhodes.com {
+md.connorrhodes.com {
 	#tls /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/sb.connorrhodes.com_key.pem
 	import authelia_sso
 	import robots_txt
@@ -115,13 +115,6 @@ ssh.connorrhodes.com {
 	import robots_txt
 	reverse_proxy 127.0.0.1:36135
 }
-
-# md.connorrhodes.com {
-# 	tls /home/connor/code/infra/certs/cf_origin_certs/md.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/md.connorrhodes.com_key.pem
-# 	import authelia_sso
-# 	import robots_txt
-# 	reverse_proxy 127.0.0.1:2290
-# }
 
 api.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/api.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/api.connorrhodes.com_key.pem
