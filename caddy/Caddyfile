@@ -64,6 +64,18 @@ pass.connorrhodes.com {
 #	reverse_proxy 127.0.0.1:60168
 #}
 
+
+winter.connorrhodes.com {
+        import authelia_sso
+        import robots_txt
+        reverse_proxy 10.93.82.129:58670 {
+                header_up Remote-User {header.Remote-User}
+                header_up Remote-Groups {header.Remote-Groups}
+                header_up Remote-Name {header.Remote-Name}
+                header_up Remote-Email {header.Remote-Email}
+        }
+}
+
 nc.connorrhodes.com {
     import robots_txt
     reverse_proxy 127.0.0.1:11000 {
@@ -142,6 +154,13 @@ s2.connorrhodes.com {
 	file_server
 }
 
+tools.connorrhodes.com {
+	import authelia_sso
+	import robots_txt
+	root * /home/connor/code/web_tools
+	file_server
+}
+
 files.connorrhodes.com {
     import robots_txt
     reverse_proxy 127.0.0.1:26835 {
@@ -166,6 +185,20 @@ news.connorrhodes.com {
 tasks.connorrhodes.com {
 	tls /home/connor/code/infra/certs/cf_origin_certs/tasks.connorrhodes.com_certificate.pem /home/connor/code/infra/certs/cf_origin_certs/tasks.connorrhodes.com_key.pem
 	import robots_txt
+
+	# Handle CORS preflight requests
+	@options method OPTIONS
+	header @options Access-Control-Allow-Origin "https://tools.connorrhodes.com"
+	header @options Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+	header @options Access-Control-Allow-Headers "Authorization, Content-Type, X-API-Key"
+	header @options Access-Control-Max-Age "3600"
+	respond @options 204
+
+	# Add CORS headers to all responses
+	header Access-Control-Allow-Origin "https://tools.connorrhodes.com"
+	header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+	header Access-Control-Allow-Headers "Authorization, Content-Type, X-API-Key"
+
 	reverse_proxy 127.0.0.1:15177
 }
 
